@@ -1,0 +1,24 @@
+{% extends 'authmain.html' %}
+
+{% block content %}
+<h3> <p class="text-center"> Course View {{ tp }} </p> </h3>
+<a class="nav-link" href="{% url 'mark_attendance' chain.id %}"><button class="btn btn-outline-info mb-auto" type="submit">Mark a new period's attendance</button> </a> 
+<a class="nav-link" href="{% url 'integrity' chain.id %}"><button class="btn btn-outline-info mb-auto" type="submit">Check the Integrity of the Chain</button> </a>
+<div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for block in blocks %}
+            <tr>
+              <td><a href="{% url 'attendance_view' chain.id block.id %}">{{ block.index }}</a></td>
+              <td><a href="{% url 'attendance_view' chain.id block.id %}">{{ block.timestamp }}</a></td>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+{% endblock %}

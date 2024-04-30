@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h4><p class="text-center"> NexusFlow </p> </h4>
+<h5><p class="text-center">  </p> </h5>
+
+<div class="card border-dark mb-3 mx-auto" align="center" style="width: 18rem;">
+  <div class="card-body">
+  <form method='POST'>
+    {% csrf_token %}
+    <h5 class="card-title">
+    {{ error }}
+    {{ form | crispy }}
+    <button class="btn btn-outline-primary" type="Submit"> Log In </button>
+    </h5>
+  </form>
+    <hr> <h6 class="card-subtitle mb-2 text-muted">Don't have an account? </h6>
+    <a href="{% url 'register' %}" class="card-link"><button class="btn btn-outline-primary" type="button">Register</button></a>
+  </div>
+</div>
+
+{% endblock %}

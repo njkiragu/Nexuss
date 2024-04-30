@@ -1,0 +1,9 @@
+{% extends 'authmain.html' %}
+
+{% block content %}
+<div class="alert alert-info" role="alert">
+<h3> <p class="text-center">Saved!</p> </h3>
+</div>
+
+<a class="nav-link" href="{% url 'dashboard' %}"><button class="btn btn-outline-info mb-auto" type="submit">Go Back to Dashboard</button> </a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'authmain.html' %}
+
+{% block content %}
+<h4><p class="text-center"> {{ announcements }} </P></h4>
+<form method="POST">
+    {% csrf_token %}
+        {% for i in number %}
+        <p>
+            {{ chain.sem }}-{{ chain.code }}-{{ chain.slot }}-{{ i }}: &emsp;
+            <label>
+                <input type="radio" name="roll_no{{ i }}" id="roll_no{{ i }}" value="P">
+                <span>Present &emsp; </span>
+            </label>
+            <label>
+                <input type="radio" name="roll_no{{ i }}" id="roll_no{{ i }}" value="A" checked="checked">
+                <span>Absent</span>
+            </label>
+            <br />
+        </p>
+        {% endfor %}
+        <button class="btn btn-outline-primary" type="Submit"> Mark </button>
+    </form>
+    <br><br><br>
+
+{% endblock %}

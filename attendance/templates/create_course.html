@@ -1,0 +1,29 @@
+{% extends 'authmain.html' %}
+
+{% block content %}
+<h3> <p class="text-center"> Create a new File: </p> </h3>
+
+<div class="card border-dark mb-3 mx-auto" align="center" style="width: 40rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+      <form action="{% url 'create_course' %}" method='POST'>
+        {% csrf_token %}
+        <label for="year">Year: </label>
+        <input type="text" id="year" name="year" value=""><br>
+        <label for="code">Reporter: </label>
+        <input type="text" id="code" name="code" value=""><br>
+        <label for="name">Offender's Name: </label>
+        <input type="text" id="name" name="name" value=""><br>
+        <label for="slot">Offence: </label>
+        <input type="text" id="slot" name="slot" value=""><br>
+        <label for="strength">ID Number: </label>
+        <input type="text" id="strength" name="strength" value=""><br>
+        <label for="sem">Punishment Given: </label>
+        <input type="text" id="sem" name="sem" value=""><br>
+        <button class="btn btn-outline-primary" type="Submit"> Create </button>
+      </form>
+    </h5>
+    </div>
+</div>
+
+{% endblock %}
